@@ -57,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $stmt->bindParam(':token', $token);
         $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
-        $graph = "https://graph.facebook.com/v5.0/me?fields=me?fields=accounts.limit(100){id,name,access_token},id,name&access_token=".$token;
+        $graph = "https://graph.facebook.com/v5.0/me?fields=accounts.limit(100){id,name,access_token},id,name&access_token=".$token;
         $fanpage = fanpage_id($graph);
         foreach ($fanpage['accounts']['data'] as $name => $value){
             $uid = $value['id'];
